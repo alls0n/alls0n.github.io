@@ -183,6 +183,7 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       grid-auto-rows: 150px;
       margin-left: 5%;
+      padding: 10%;
       gap: 20px
     }
 
@@ -209,12 +210,9 @@
 
     .gallery-image-big img {
       height: 200px;
-      width:100%;
-      margin-left: auto; /* Aligns the image to the left */
-      grid-column: span 2;
+      grid-column: span 1;
       transition:transform 0.25s ease;
-      margin-top: 5px; /* Add some space between image & text */
-      object-fit: contain; /* Ensures the whole image fits within the box without cropping */
+      margin-top: 5px;
     }
 
     .gallery-image > img:hover {
