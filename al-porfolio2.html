@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+  
+<title>Allison Lee Portfolio</title>
+  <style type="text/css">
+
+  body {
+    display: flex;
+    font-family: "BIZ UDMincho", 'Arial';
+    color:black; /*body text color*/
+    background-color:rgb(255, 255, 255); /* background color. can make gradient? */
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=BIZ+UDPMincho&display=swap');
+
+
+  .biz-udmincho-regular {
+    font-family: "BIZ UDMincho", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .biz-udmincho-bold {
+    font-family: "BIZ UDMincho", serif; 
+    font-weight: 700; 
+    font-style: normal; 
+  }
+
+  /* === GRID WRAPPER === */
+.wrapper {
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* header, carousel, portfolio */
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #000000;
+}
+
+.header .left { text-align: left; }
+.header .center { text-align: center; }
+.header .right { text-align: right; }
+
+.header h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2.2rem;
+}
+
+.header nav a {
+  color: black;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+.header nav a:hover {
+  color: rgb(180, 188, 188);
+}
+
+/* Nav Menu */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-family: "BIZ UDMincho", serif; /* match your site’s font */
+  font-weight:400;
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.2s ease;
+}
+.menu-toggle:hover {
+  color: rgb(180, 188, 188);
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden off screen */
+  height: 100%;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1rem;
+  transition: right 0.3s ease;
+  z-index: 1200;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.side-menu li {
+  margin: 1rem 0;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.side-menu a:hover {
+  color: rgb(180, 188, 188);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Optional dark overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1100;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === STICKY NAV PILLS === */
+.semester-nav {
+  position: sticky;
+  top: 0; /* sticks to top */
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 50;
+  padding: 0.5rem 0;
+}
+
+.semester-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.semester-nav a {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 5px; /* makes them pill-shaped */
+  background-color: #f5f5f5;
+  color: black;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.semester-nav a:hover {
+  background-color: rgb(180, 188, 188);
+  color: white;
+}
+
+.semester-nav a.active {
+  background-color: black;
+  color: white;
+}
+
+/* === FEATURED CAROUSEL === */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-bottom: 1rem; /*just added this???*/
+}
+
+.carousel-item img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.carousel-caption {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+  color: #444;
+}
+
+.carousel-label {
+  /*border-top: 1px solid #ddd;*/
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding-left: 2.75rem;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(233, 233, 233, 0.956);
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5%;
+  cursor:pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-button:hover {
+  background: rgba(180, 188, 188, 0.719);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev { left: 1rem; }
+.carousel-button.next { right: 1rem; }
+
+/* Buttons 
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+}
+.carousel-button:hover {
+  background: rgba(255,255,255,0.9);
+}
+.carousel-button.prev { left: 1rem; }
+.carousel-button.next { right: 1rem; }*/
+
+/* ======= SEMESTER SECTIONS ======= */
+.portfolio-section {
+  padding: 2rem;
+}
+
+.semester-label {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  /*border-left: 4px solid rgb(150, 211, 211);*/
+  padding-left: 0.75rem;
+}
+
+/* === PORTFOLIO GRID === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+/*
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+  padding: 2rem;
+}*/
+
+.portfolio-item {
+  /*background-color: #f3f3f3;*/
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  /* dunno about below?*/
+  /*padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);*/
+}
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.portfolio-item p {
+  margin-top: 0.5rem;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/*
+.portfolio-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}*/
+</style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="left"><h1>Allison Lee</h1></div>
+      <div class="center"><h1>Portfolio</h1></div>
+      <div class="right">
+        <button class="menu-toggle">Nav.</button>
+      </div>
+    </div>
+
+    <!-- Side Menu -->
+    <nav class="side-menu" id="sideMenu">
+      <button class="close-btn">&times;</button>
+      <ul>
+        <li><a href="index.html">Welcome</a></li>
+        <li><a href="al-porfolio2.html">Portfolio</a></li>
+        <li><a href="al-worksample.html">Work Samples</a></li>
+        <li><a href="al-contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Overlay (optional, for dim background) -->
+    <div class="overlay" id="overlay"></div>
+
+      <!-- STICKY SEMESTER NAV -->
+    <nav class="semester-nav">
+      <ul>
+        <li><a href="#year3">Year 3 (Fall 2025)</a></li>
+        <li><a href="#year2">Year 2 (Fall 2024)</a></li>
+        <li><a href="#year1">Year 1 (Fall 2023)</a></li>
+        <li><a href="#other">Other</a></li>
+      </ul>
+    </nav>
+
+    <!-- FEATURED CAROUSEL -->
+    <div class="carousel-label">Featured:</div>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <img src="/images/allison-portfolio/artwork/summer25/This_piggy.png" alt="Featured 1">
+          <div class="carousel-caption">This Little Piggy 07-2025</div>
+        </div>
+        <div class="carousel-item">
+          <img src="/images/allison-portfolio/artwork/summer24/layout6-24.png" alt="Featured 2">
+          <div class="carousel-caption">Layout 1 06-2024</div>
+        </div>
+        <div class="carousel-item">
+          <img src="/images/allison-portfolio/artwork/spring24/Info_Laundry2-24.png" alt="Featured 3">
+          <div class="carousel-caption">Laundry Informational 02-2024</div>
+        </div>
+        <div class="carousel-item">
+          <img src="/images/allison-portfolio/artwork/otherprev/usagi7-22.png" alt="Featured 4">
+          <div class="carousel-caption">Untitled 07-2022</div>
+        </div>
+      </div>
+      <button class="carousel-button prev">&#10094;</button>
+      <button class="carousel-button next">&#10095;</button>
+    </div>
+
+    <!-- ===== PORTFOLIO SECTIONS ===== -->
+  <main>
+
+    <section class="portfolio-section" id="year3">
+      <div class="semester-label">Fall 2025</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item"><img src="https://placekitten.com/400/300" alt=""></div>
+        <div class="portfolio-item"><img src="https://placekitten.com/400/400" alt=""></div>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="semester-label">Spring 2025</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer25/UPC_code.png" data-lightbox="spring25" data-title="UPC Codes 07-2025">
+            <img src="/images/allison-portfolio/artwork/summer25/UPC_code.png" alt="UPC Codes">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer25/This_piggy.png" data-lightbox="spring25" data-title="This Little Piggy 07-2025">
+            <img src="/images/allison-portfolio/artwork/summer25/This_piggy.png" alt="This Piggy">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer25/Old_macdonald.png" data-lightbox="spring25" data-title="Old MacDonald 07-2025">
+            <img src="/images/allison-portfolio/artwork/summer25/Old_macdonald.png" alt="Old MacDonald">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring25/hypnagogic3-25.png" data-lightbox="spring25" data-title="Hypnagogic Pop Spread 03-2025">
+            <img src="/images/allison-portfolio/artwork/spring25/hypnagogic3-25.png" alt="Hypnagogic Spread">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring25/bmCover2-25.png" data-lightbox="spring25" data-title="Tastemakers Issue 79 Cover 02-2025">
+            <img src="/images/allison-portfolio/artwork/spring25/bmCover2-25.png" alt="Black Metal Cover">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring25/bmBackCover2-25.png" data-lightbox="spring25" data-title="Tastemakers Issue 79 Back 02-2025">
+            <img src="/images/allison-portfolio/artwork/spring25/bmBackCover2-25.png" alt="Black Metal Back">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section" id="year2">
+      <div class="semester-label">Fall 2024</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall24/infoDesignFinal11-24.png" data-lightbox="fall24" data-title="Info. Design Final 11-2024">
+            <img src="/images/allison-portfolio/artwork/fall24/infoDesignFinal11-24.png" alt="Info Design Graphic">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall24/longdistanceficitionalHeadphoneRender_10-24.png" data-lightbox="fall24" data-title="Long Distance Render 3 10-2024">
+            <img src="/images/allison-portfolio/artwork/fall24/longdistanceficitionalHeadphoneRender_10-24.png" alt="Long Distance 3">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall24/HeadphoneRender_14 copy.png" data-lightbox="fall24" data-title="Long Distance Render 2 10-2024">
+            <img src="/images/allison-portfolio/artwork/fall24/HeadphoneRender_14 copy.png" alt="Long Distance 2">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall24/headphone13.png" data-lightbox="fall24" data-title="Long Distance Render 1 10-2024">
+            <img src="/images/allison-portfolio/artwork/fall24/headphone13.png" alt="Long Distance 1">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall24/imaginalDisk10-24.png" data-lightbox="fall24" data-title="Imaginal Disk Album Review 10-2024">
+            <img src="/images/allison-portfolio/artwork/fall24/imaginalDisk10-24.png" alt="Imaginal Disk Review">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="semester-label">Spring 2024</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/stilllife7-24.png" data-lightbox="spring24" data-title="Still Life 07-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/stilllife7-24.png" alt="Still Life Fruit">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/typeSymphonyFinal6-24.png" data-lightbox="spring24" data-title="Symphony Poster 06-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/typeSymphonyFinal6-24.png" alt="Symphony Poster">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/layout26-24.png" data-lightbox="spring24" data-title="Layout 2 06-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/layout26-24.png" alt="Layout 2">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/layout6-24.png" data-lightbox="spring24" data-title="Layout 1 06-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/layout6-24.png" alt="Layout 1">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wrodplaybird.png" data-lightbox="spring24" data-title="Wordplay 'Bird' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wrodplaybird.png" alt="Wordplay Bird">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplayfloat.png" data-lightbox="spring24" data-title="Wordplay 'Float' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplayfloat.png" alt="Wordplay Float">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplaytrain.png" data-lightbox="spring24" data-title="Wordplay 'Train' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplaytrain.png" alt="Wordplay Train">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplayloud.png" data-lightbox="spring24" data-title="Wordplay 'Loud' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplayloud.png" alt="Wordplay Loud">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplayhang.png" data-lightbox="spring24" data-title="Wordplay 'Hang' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplayhang.png" alt="Wordplay Hang">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplaymissing.png" data-lightbox="spring24" data-title="Wordplay 'Missing' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplaymissing.png" alt="Wordplay Missing">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/wordplaysink.png" data-lightbox="spring24" data-title="Wordplay 'Sink' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/wordplaysink.png" alt="Wordplay Sink">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/lettermark5-24.png" data-lightbox="spring24" data-title="Lettermark 'AL' 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/lettermark5-24.png" alt="Lettermarks">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/summer24/hw35-24.png" data-lightbox="spring24" data-title="Untitled 05-2024">
+            <img src="/images/allison-portfolio/artwork/summer24/hw35-24.png" alt="Keller Quote">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/egonafter4-24.png" data-lightbox="spring24" data-title="Blue Stockings After Schiele 04-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/egonafter4-24.png" alt="Stockings After Schiele">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/colorCompMixed4-24.png" data-lightbox="spring24" data-title="Untitled 04-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/colorCompMixed4-24.png" alt="Untitled Mixed Media">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/cctoolshwrumen4-24.png" data-lightbox="spring24" data-title="Rumen 04-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/cctoolshwrumen4-24.png" alt="Rumen">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/ccToolsHw4-24.png" data-lightbox="spring24" data-title="Room 04-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/ccToolsHw4-24.png" alt="Room">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/yearnCollage3-24.png" data-lightbox="spring24" data-title="Home 03-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/yearnCollage3-24.png" alt="Home Collage">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/ccmod4-24.png" data-lightbox="spring24" data-title="How Will You Mod? 04-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/ccmod4-24.png" alt="How Will You Mod">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/ccseries4poster3-24.png" data-lightbox="spring24" data-title="Painted 03-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/ccseries4poster3-24.png" alt="Painted Back">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/MoleCritter2-24.gif" data-lightbox="spring24" data-title="Mole Critter 02-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/MoleCritter2-24.gif" alt="Mole Critter">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/Info_Laundry2-24.png" data-lightbox="spring24" data-title="Laundry Informational 02-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/Info_Laundry2-24.png" alt="Laundry Informational">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/SAD1-24.png" data-lightbox="spring24" data-title="SAD 01-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/SAD1-24.png" alt="SAD">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/MOO1-24.png" data-lightbox="spring24" data-title="MOO 01-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/MOO1-24.png" alt="MOO">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/DAWG1-24.png" data-lightbox="spring24" data-title="Untitled 01-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/DAWG1-24.png" alt="Dawgs">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/Troll1-24.png" data-lightbox="spring24" data-title="Creeper 01-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/Troll1-24.png" alt="Creeper">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/spring24/bwolga1-24.png" data-lightbox="spring24" data-title="Notan of the Cat 01-2024">
+            <img src="/images/allison-portfolio/artwork/spring24/bwolga1-24.png" alt="Notan">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section" id="year1">
+      <div class="semester-label">Fall 2023</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall23/face12-23.png" data-lightbox="fall23" data-title="Untitled 12-2023">
+            <img src="/images/allison-portfolio/artwork/fall23/face12-23.png" alt="Eating">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall23/bust11-23.png" data-lightbox="fall23" data-title="Untitled 11-2023">
+            <img src="/images/allison-portfolio/artwork/fall23/bust11-23.png" alt="Bust">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall23/stalactites11-23.png" data-lightbox="fall23" data-title="Untitled 11-2023">
+            <img src="/images/allison-portfolio/artwork/fall23/stalactites11-23.png" alt="Stalactites">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall23/phish-10-23.png" data-lightbox="fall23" data-title="Untitled 10-2023">
+            <img src="/images/allison-portfolio/artwork/fall23/phish-10-23.png" alt="Barracuda">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/fall23/dance09-23.png" data-lightbox="fall23" data-title="Untitled 09-2023">
+            <img src="/images/allison-portfolio/artwork/fall23/dance09-23.png" alt="Dancing">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section" id="other">
+      <div class="semester-label">Other Previous</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/otherprev/lily8-22.png" data-lightbox="otherprev" data-title="Summer Fever 08-2022">
+            <img src="/images/allison-portfolio/artwork/otherprev/lily8-22.png" alt="Lily Frog">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/otherprev/kitty8-22.png" data-lightbox="otherprev" data-title="Untitled 08-2022">
+            <img src="/images/allison-portfolio/artwork/otherprev/kitty8-22.png" alt="Hello Kitty">
+          </a>
+        </div>
+        <div class="portfolio-item">
+          <a href="/images/allison-portfolio/artwork/otherprev/usagi7-22.png" data-lightbox="otherprev" data-title="Untitled 07-2022">
+            <img src="/images/allison-portfolio/artwork/otherprev/usagi7-22.png" alt="Bunny">
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  </div>
+
+  <script>
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(track.children);
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextButton.addEventListener('click', () => {
+    index = (index + 1) % items.length;
+    updateCarousel();
+  });
+
+  prevButton.addEventListener('click', () => {
+    index = (index - 1 + items.length) % items.length;
+    updateCarousel();
+  });
+
+  // Optional: highlight active nav pill while scrolling
+  const sections = document.querySelectorAll(".portfolio-section");
+  const navLinks = document.querySelectorAll(".semester-nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100; // offset for header height
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+    });
+  });
+
+  // Optional auto-slide
+  /*
+  setInterval(() => {
+    index = (index + 1) % items.length;
+    updateCarousel();
+  }, 5000);*/
+  const menuToggle = document.querySelector('.menu-toggle');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeBtn = document.querySelector('.close-btn');
+  const overlay = document.getElementById('overlay');
+
+  menuToggle.addEventListener('click', () => {
+    sideMenu.classList.add('open');
+    overlay.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+    overlay.classList.remove('show');
+  });
+
+  overlay.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+    overlay.classList.remove('show');
+  });
+  </script>
+</body>
+</html>
