@@ -9,10 +9,11 @@
   <style type="text/css">
 
   body {
-    display: flex;
+    margin: 0;
+    padding: 0;
     font-family: "BIZ UDMincho", 'Arial';
-    color:black; /*body text color*/
-    background-color:rgb(255, 255, 255); /* background color. can make gradient? */
+    color: black;
+    background-color: rgb(255, 255, 255);
   }
 
   @import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=BIZ+UDPMincho&display=swap');
@@ -151,6 +152,39 @@
   visibility: visible;
 }
 
+/*About section*/
+
+.about-section {
+  display: flex;
+  justify-content: center; /* center both boxes as a group */
+  align-items: flex-start; /* align tops */
+  gap: 5rem; /* space between about + resume */
+  padding: 4rem 2rem;
+  text-align: left;
+  flex-wrap: wrap; /* allow stacking on smaller screens */
+}
+
+.about-box {
+  background: #fafafa;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  max-width: 300px;
+  padding: 2rem 2.5rem;
+  font-family: "BIZ UDMincho", serif;
+  color: #000000;
+}
+
+.resume {
+  max-width: 500px; /* adjust as needed */
+  margin-top: 50px;
+}
+
+.resume-label {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+
 /* FOOTER */
 /*
 .footer {
@@ -184,12 +218,28 @@
 
     <!-- Overlay (optional, for dim background) -->
     <div class="overlay" id="overlay"></div>
-  </div>
 
     <!--  About Section -->
-  <main>
+    <main>
+      <div class="about-section">
+        <div class="about-box">
+          <p>Allison Lee is currently located in:</p>
+          <p>Boston, MA 02118</p>
+          <p>Reach out!</p>
+          <p>Email: lee.allison@northeastern.edu</p>
+          <p>Phone: (415)316-8530</p>
+        </div>
 
-  </main>
+        <div class="resume">
+          <div class="resume-label">Resume</div>
+          <p>Download resume here:</p>
+          <a href="images/allison-portfolio/Design_Lee_Allison_Resume.pdf" target="_blank">View Resume</a>
+          <embed src="images/allison-portfolio/Design_Lee_Allison_Resume.pdf" 
+                width="500" height="700" type="application/pdf">
+        </div>
+      </div>
+    </main>
+  </div>
 
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
