@@ -152,6 +152,77 @@
   visibility: visible;
 }
 
+/* MAIN CONTENT */
+main {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3rem;
+}
+
+.project-title {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
+  /*border-left: 4px solid #000;*/
+  padding-left: 0.5rem;
+}
+
+.pdf-view {
+  flex: 1 1 45%;
+  max-width: 75%;
+}
+
+.pdf-view iframe {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #000;
+}
+
+.project-media {
+  flex: 1 1 45%;
+  max-width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.project-media a img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+}
+
+.project-media img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+  max-width: 600px;
+}
+
+
+.project-media a {
+  text-align: center;
+  color: black;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.project-media a:hover {
+  color: rgb(180, 188, 188);
+}
+
 </style>
 </head>
 
@@ -179,12 +250,77 @@
 
     <!-- Overlay (optional, for dim background) -->
     <div class="overlay" id="overlay"></div>
-  </div>
 
     <!-- ===== PORTFOLIO SECTIONS ===== -->
-  <main>
+    <main>
+      <!-- Sleep2Stream -->
+      <section class="project-group">
+        <h2 class="project-title">Sleep2Stream 05-2025</h2>
+        <div class="pdf-view">
+          <iframe src="images/allison-portfolio/worksamples/sleep2stream5-25.pdf"></iframe>
+        </div>
+        <div class="project-media">
+          <a href="https://www.figma.com/proto/JoATxyzzNaQQm8qHLohUK9/Apple-Dreams---Sleep2Stream?node-id=6018-4869&p=f&t=ySha34W7VSFTJFdv-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A5&starting-point-node-id=6018%3A4869&show-proto-sidebar=1" target="_blank">
+            <img src="images/allison-portfolio/worksamples/sleep2streamimg.png" alt="Sleep2Stream">
+          </a>
+        </div>
+      </section>
 
-  </main>
+      <!-- WhatsNeu -->
+      <section class="project-group">
+        <h2 class="project-title">WhatsNeu 05-2025</h2>
+        <div class="pdf-view">
+          <iframe src="images/allison-portfolio/worksamples/whatsneu5-25.pdf"></iframe>
+        </div>
+        <div class="project-media">
+          <a href="https://www.figma.com/proto/9H6Y2VxZUiCjKU4Wd6ixGd/HCI-G5-Mid-Fidelity-Prototype?node-id=1-65&t=t06lsNCDElgQocl8-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A65&show-proto-sidebar=1" target="_blank">
+            <img src="images/allison-portfolio/worksamples/whatsneuimg.png" alt="WhatsNeu">
+          </a>
+        </div>
+      </section>
+
+      <!-- RemoteCooker -->
+      <section class="project-group">
+        <h2 class="project-title">RemoteCooker 04-2025</h2>
+        <div class="pdf-view">
+          <iframe src="images/allison-portfolio/worksamples/remotecooker4-25.pdf"></iframe>
+        </div>
+        <div class="project-media">
+          <a href="https://www.figma.com/proto/9EIlv0hgiU0w0rUzMAVQhe/W---Allison-Lee?node-id=6049-750&starting-point-node-id=6049%3A750&t=CleeSOnuySs251xW-1" target="_blank">
+            <img src="images/allison-portfolio/worksamples/remotecookerimg.png" alt="RemoteCooker">
+          </a>
+        </div>
+      </section>
+
+      <!-- BookWorm -->
+      <section class="project-group">
+        <h2 class="project-title">BookWorm 04-2025</h2>
+        <div class="pdf-view">
+          <iframe src="images/allison-portfolio/worksamples/BookWorm4-25.pdf"></iframe>
+        </div>
+        <div class="project-media">
+          <a href="https://www.figma.com/proto/kUQKiky9S9Q5vGCkcEFh3Q/StudyAppWireframe?node-id=89-3107&t=rR6ybmHQTNVbKzNG-1&scaling=scale-down&content-scaling=fixed&page-id=68%3A1249&starting-point-node-id=170%3A5410&show-proto-sidebar=1" target="_blank">
+            <img src="images/allison-portfolio/worksamples/bookwormimg.png" alt="BookWorm">
+          </a>
+        </div>
+      </section>
+
+      <!-- Communicating Data -->
+      <section class="project-group">
+        <h2 class="project-title">Communicating Data 12-2024</h2>
+        <div class="pdf-view">
+          <iframe src="images/allison-portfolio/worksamples/lee_finaldeliverable_D05 12-24.pdf"></iframe>
+        </div>
+        <div class="project-media">
+          <a href="images/allison-portfolio/artwork/fall24/infoDesignFinal11-24.png" data-lightbox="project1" data-title="Communicating Data 12-2024">
+            <img src="images/allison-portfolio/artwork/fall24/infoDesignFinal11-24.png" alt="InfoDesignFinal">
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
 
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
