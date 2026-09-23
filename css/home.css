@@ -1,0 +1,57 @@
+
+/* Home page: half text, half carousel */
+.split {
+  flex: 1 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*
+.page-header, .split__header {
+  flex: none;
+  align-items: center;           /* centers the title if the min-height is taller than the text needs */
+  /*min-height: var(--sidebar-w);  /* lines the border up with the icon's bottom edge */
+  /*padding: clamp(1rem, 3vw, 2rem) var(--gutter);
+  /*padding: clamp(0.75rem, 2vw, 1.25rem) var(--gutter);
+  /*padding: clamp(1rem, 3vw, 2rem) var(--gutter);*/
+  /*border-bottom: var(--line);
+/*}
+
+.page-header h1, .split__header h1 {
+  margin: 0;
+}*/
+
+.split__text {
+  /*padding: clamp(1.5rem, 4vw, 4rem); /*1.5rem, 4vw, 4rem*/
+  padding: var(--gutter);
+}
+
+.split__text > * {
+  max-width: 34rem;
+}
+
+.split__text p {
+  margin: 0 0 1.25rem;
+}
+
+.split__media {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 420px;
+  border-left: var(--line);
+}
+
+/* Small screens: narrower rails, text stacks above the carousel */
+
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split__media {
+    min-height: 0;
+    border-left: 0;
+    border-top: var(--line);
+  }
+}

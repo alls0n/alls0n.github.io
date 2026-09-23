@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Portfolio layout
+   Shell (sidebar + footer) is shared by every page. Only <main> changes.
+   ========================================================================== */
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  /*--line: 1px solid var(--ink);*/
+  --borderink: #c2c2c2;
+  --line: 1px solid var(--ink);
+
+  /* Keep these equal and the sidebar/footer intersection is a square. */
+  --sidebar-w: 90px;
+  --footer-h: 90px;
+
+  --font-display: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Assistant", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --gutter: clamp(1.5rem, 4vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  /*font-size: clamp(2.25rem, 4.5vw, 3.75rem);*/
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Small screens: narrower rails, text stacks above the carousel */
+@media (max-width: 800px) {
+  :root {
+    --sidebar-w: 72px;
+    --footer-h: 72px;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+}

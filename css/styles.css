@@ -1,0 +1,38 @@
+/* --------------------------------------------------------------------------
+   Small screens: narrower rails, text stacks above the carousel
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 800px) {
+  :root {
+    --sidebar-w: 72px;
+    --footer-h: 72px;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  .sidebar__nav a {
+    font-size: 0.875rem;
+    padding: 0.875rem 0.25rem;
+  }
+
+  .footer {
+    font-size: 0.875rem;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split__media {
+    min-height: 0;
+    border-left: 0;
+    border-top: var(--line);
+  }
+
+  .carousel__track {
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
+}

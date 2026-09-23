@@ -1,323 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ally | Portfolio</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
-<link rel="icon" type="image/png" href="images/al_favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Public+Sans:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/al_favicon.png">
 
-<title>Allison Lee Welcome</title>
-  <style type="text/css">
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "BIZ UDMincho", 'Arial';
-    color: black;
-    background-color: rgb(255, 255, 255);
-  }
-
-  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho:wght@400;700&family=BIZ+UDPMincho&display=swap');
-
-
-  .biz-udmincho-regular {
-    font-family: "BIZ UDMincho", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .biz-udmincho-bold {
-    font-family: "BIZ UDMincho", serif; 
-    font-weight: 700; 
-    font-style: normal; 
-  }
-
-  /* === GRID WRAPPER === */
-.wrapper {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  min-height: 100vh;
-  width: 100%;
-}
-
-/* === HEADER === */
-.header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #000000;
-}
-
-.header .left { text-align: left; }
-.header .center { text-align: center; }
-.header .right { text-align: right; }
-
-.header h1 {
-  margin: 0;
-  font-weight: 400;
-  font-size: 2.2rem;
-  /*        letter-spacing:-65px; */
-}
-
-.header nav a {
-  color: black;
-  text-decoration: none;
-  margin-left: 1rem;
-  font-size: 1rem;
-}
-.header nav a:hover {
-  color: rgb(180, 188, 188);
-}
-
-/* === STICKY NAV PILLS === */
-.top-nav {
-  position: sticky;
-  top: 0; /* sticks to top */
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  z-index: 50;
-  padding: 0.5rem 0;
-}
-
-.top-nav ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.top-nav a {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  border-radius: 5px; /* makes them pill-shaped */
-  background-color: #f5f5f5;
-  color: black;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.2s ease-in-out;
-}
-
-.top-nav a:hover {
-  background-color: rgb(180, 188, 188);
-  color: white;
-}
-
-.top-nav a.active {
-  background-color: black;
-  color: white;
-}
-
-/* Nav Menu */
-.menu-toggle {
-  background: none;
-  border: none;
-  font-family: "BIZ UDMincho", serif; /* match your site’s font */
-  font-weight:400;
-  font-size: 2.2rem;
-  cursor: pointer;
-  color: #000000;
-  transition: color 0.2s ease;
-}
-.menu-toggle:hover {
-  color: rgb(180, 188, 188);
-}
-
-/* Side Menu */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%; /* hidden off screen */
-  height: 100%;
-  width: 250px;
-  background-color: #fff;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1rem;
-  transition: right 0.3s ease;
-  z-index: 1200;
-}
-
-.side-menu.open {
-  right: 0;
-}
-
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-}
-
-.side-menu li {
-  margin: 1rem 0;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.1rem;
-  transition: color 0.2s ease;
-}
-
-.side-menu a:hover {
-  color: rgb(180, 188, 188);
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #333;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-/* Optional dark overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 1100;
-}
-
-.overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* About section */
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  text-align: left;
-}
-
-.about-box {
-  background: #fafafa;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  max-width: 500px;
-  padding: 2rem 2.5rem;
-  font-family: "BIZ UDMincho", serif;
-  color: #000000;
-}
-
-.about-box h2 {
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.about-box p {
-  line-height: 1.5;
-  font-size: 1rem;
-}
-
-/* FOOTER */
-.footer-hero {
-  position: relative;
-  background-image: url("images/allison-portfolio/welcomedawgs.png");
-  background-size: 200px auto; /* larger tiles */
-  background-position: bottom center;
-  background-repeat: repeat-x;
-  height: 200px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  margin-top: 0;
-}
-
-
-</style>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
-
 <body>
-  <div class="wrapper">
-    <!-- HEADER -->
-    <div class="header">
-      <div class="left"><h1>Allison Lee</h1></div>
-      <div class="center"><h1>Welcome</h1></div>
-      <div class="right">
-        <button class="menu-toggle">Nav.</button>
+  <div class="shell">
+
+    <!-- ===== SIDEBAR (keep identical on every page) ===== -->
+    <aside class="sidebar">
+      <a class="sidebar__icon" href="index.html" aria-label="Home">
+         <img src="images/al_favicon.png">
+      </a>
+      <nav class="sidebar__nav" aria-label="Main">
+        <a href="al-projects.html">Projects</a>
+        <a href="al-gallery.html">Gallery</a>
+      </nav>
+    </aside>
+
+    <!-- ===== MAIN (replace everything inside for other pages) ===== -->
+    <main class="main">
+      <div class="split">
+        <div class="split__content">
+          <header class="split__header">
+            <h1>Allison Lee</h1>
+          </header>
+
+          <section class="split__text">
+            <p>I'm a fourth year studying CS & Design at Northeastern University. From San Francisco, based in Boston.</p>
+            <p>Open-minded and motivated by curiosity, I'm seeking opportunities to challenge myself and grow in technical & creative roles. </p>
+            <p><a href="al-projects.html">See my projects!</a></p>
+          </section>
+        </div>
+        
+        <section class="split__media">
+          <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Featured work">
+            <div class="carousel__track" tabindex="0">
+              <!-- Add or remove <figure> slides as needed. Put your images in an /images folder. -->
+              <figure class="carousel__slide">
+                <img src="images/gallery/2025/summer25/This_piggy.png" alt="Featured 1: This Little Piggy" onerror="this.remove()">
+                <figcaption><strong>Featured:</strong> This Little Piggy</figcaption>
+              </figure>
+              <figure class="carousel__slide">
+                <img src="images/gallery/2026/botb_ig_graphic.PNG" alt="Featured 2: Battle of the Bands" onerror="this.remove()">
+                <figcaption><strong>Featured:</strong> Battle of the Bands - Collateral</figcaption>
+              </figure>
+              <figure class="carousel__slide">
+                <span class="img-bordered-wrap">
+                  <img src="images/gallery/2024/summer24/layout6-24.png" alt="Featured 3: Type Layout" onerror="this.remove()">
+                </span>
+                <figcaption><strong>Featured:</strong> Type Layout</figcaption>
+              </figure>
+              <figure class="carousel__slide">
+                <span class="img-bordered-wrap">
+                  <img src="images/gallery/2024/spring24/Info_Laundry2-24.png" alt="Featured 4: Laundry Informational" onerror="this.remove()">
+                </span>
+                <figcaption><strong>Featured:</strong> Laundry Informational</figcaption>
+              </figure>
+              <figure class="carousel__slide">
+                <img src="images/gallery/otherprev/usagi7-22.png" alt="Featured 5: Bunnie Render" onerror="this.remove()">
+                <figcaption><strong>Featured:</strong> Untitled - Render</figcaption>
+              </figure>
+            </div>
+
+            <div class="carousel__bar">
+              <span class="carousel__status" aria-live="polite"> 1 / 5</span>
+              <div class="carousel__buttons">
+                <button type="button" data-dir="-1">Previous</button>
+                <button type="button" data-dir="1">Next</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
-    </div>
 
-    <!-- Side Menu -->
-    <nav class="side-menu" id="sideMenu">
-      <button class="close-btn">&times;</button>
-      <ul>
-        <li><a href="index.html">Welcome</a></li>
-        <li><a href="al-porfolio2.html">Portfolio</a></li>
-        <li><a href="al-worksample.html">Work Samples</a></li>
-        <li><a href="al-contact.html">Contact</a></li>
-      </ul>
-    </nav>
+      <!--
+        For other pages, swap the .split block above for something like:
 
-    <!-- Overlay (optional, for dim background) -->
-    <div class="overlay" id="overlay"></div>
-
-       <!-- STICKY top NAV -->
-    <nav class="top-nav">
-      <ul>
-        <li><a href="al-porfolio2.html">Portfolio</a></li>
-        <li><a href="al-worksample.html">Work Samples</a></li>
-        <li><a href="al-contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!--  About Section -->
-    <main>
-    <div class="about-section">
-      <div class="about-box">
-        <p>Welcome to Allison Lee's website!</p>
-        <p>Featured are a few select works off her portfolio which can be accessed by the “Nav.”menu to the left.</p>
-        <p>Allison is currently located in Boston, MA, and can be contacted through email at: lee.allison@northeastern.edu</p>
-        <p>Relevant art/design courses include: </p>
-        <p>Typographic Systems | Information Design | Interaction Design | Algorithmic Graphic Design | Human Computer Interaction</p>
-        <p>In her free time she enjoys long walks on the beach, listening to electronic music, and reading fun novels.</p>
-      </div>
-    </div>
+        <div class="page">
+          <h1>About</h1>
+          <p>Your content...</p>
+        </div>
+      -->
     </main>
 
-    <footer class="footer-hero" aria-hidden="true"></footer>
+    <!-- ===== FOOTER (keep identical on every page) ===== -->
+    <footer class="footer">
+      <div class="footer__corner">c.2026</div>
+      <div class="footer__body">
+        <p>(415)316-8530</p>
+        <p><a href="mailto:lee.allison@northeastern.edu">lee.allison@northeastern.edu</a></p>
+      </div>
+    </footer>
+
   </div>
-
-
-
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sideMenu = document.getElementById('sideMenu');
-    const closeBtn = document.querySelector('.close-btn');
-    const overlay = document.getElementById('overlay');
-
-    menuToggle.addEventListener('click', () => {
-      sideMenu.classList.add('open');
-      overlay.classList.add('show');
-    });
-
-    closeBtn.addEventListener('click', () => {
-      sideMenu.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      sideMenu.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-  </script>
+  <script src="carousel.js"></script>
 </body>
 </html>

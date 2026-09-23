@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ally | Projects</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Public+Sans:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/al_favicon.png">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+  <div class="shell">
+
+    <!-- ===== SIDEBAR (keep identical on every page) ===== -->
+    <aside class="sidebar">
+      <a class="sidebar__icon" href="index.html" aria-label="Home">
+         <img src="images/al_favicon.png">
+      </a>
+      <nav class="sidebar__nav" aria-label="Main">
+        <a href="al-projects.html">Projects</a>
+        <a href="al-gallery.html">Gallery</a>
+      </nav>
+    </aside>
+
+    <!-- ===== MAIN (replace everything inside for other pages) ===== -->
+    <main class="main">
+    <header class="page-header"><h1>Projects</h1></header>
+
+    <div class="carousel carousel--fill carousel--strip carousel--projects" role="region" aria-roledescription="carousel" aria-label="Projects">
+        <div class="carousel__track" tabindex="0">
+
+          <article class="carousel__slide project-card">
+            <div class="project-card__figures">
+              <figure><img src="images/projects/sleep2stream/Shot(1).jpg"></figure>
+            </div>
+            <div class="project-card__head">
+              <p><strong>We Grow Microgreens: </strong>Brand Design Audit</p>
+              <a class="btn" href="https://www.figma.com/proto/..." target="_blank" rel="noopener">Documentation</a>
+            </div>
+          </article>
+
+          <article class="carousel__slide project-card">
+              <div class="project-card__figures">
+                <figure>
+                  <a href="https://www.figma.com/proto/JoATxyzzNaQQm8qHLohUK9/Apple-Dreams---Sleep2Stream?node-id=6018-4869&p=f&t=ySha34W7VSFTJFdv-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A5&starting-point-node-id=6018%3A4869&show-proto-sidebar=1" target="_blank">
+                    <img src="images/projects/sleep2stream/Shot(1).jpg" alt="Sleep2Stream App UI">
+                  </a>
+                </figure>
+                <figure>
+                  <img src="images/projects/sleep2stream/Shot.jpg" alt="Sleep2Stream Multiscreens">
+                </figure>
+              </div>
+              
+              <div class="project-card__head">
+                <p><strong>Sleep2Stream: </strong>IxD Dream Transcription Intervention</p>
+                <a class="btn" href="https://www.figma.com/proto/..." target="_blank" rel="noopener">Documentation</a>
+              </div>
+          </article>
+
+          <article class="carousel__slide project-card">
+            <div class="project-card__figures">
+              <figure><img src="images/projects/sleep2stream/Shot(1).jpg"></figure>
+            </div>
+            <div class="project-card__head">
+              <p><strong>Ryukoi: </strong>Martial Arts Training App</p>
+              <a class="btn" href="https://www.figma.com/proto/..." target="_blank" rel="noopener">Documentation</a>
+            </div>
+          </article>
+
+          <article class="carousel__slide project-card">
+            <div class="project-card__figures">
+              <figure><img src="images/projects/sleep2stream/Shot(1).jpg"></figure>
+            </div>
+            <div class="project-card__head">
+              <p><strong>Tastemakers Magazine: </strong>Article & Collateral Design</p>
+              <a class="btn" href="https://www.figma.com/proto/..." target="_blank" rel="noopener">See More</a>
+            </div>
+          </article>
+
+          <article class="carousel__slide project-card">
+            <div class="project-card__figures">
+              <figure><img src="images/projects/sleep2stream/Shot(1).jpg"></figure>
+            </div>
+            <div class="project-card__head">
+              <p><strong>Communicating Data: </strong>Information Design</p>
+              <a class="btn" href="https://www.figma.com/proto/..." target="_blank" rel="noopener">See More</a>
+            </div>
+          </article>
+        </div>
+        <!--
+        <div class="carousel__bar">
+            <span class="carousel__status" aria-live="polite"> 1 / 5</span>
+            <div class="carousel__buttons">
+            <button type="button" data-dir="-1">Previous</button>
+            <button type="button" data-dir="1">Next</button>
+        </div>-->
+    </div>
+    </main>
+
+    <!-- ===== FOOTER (keep identical on every page) ===== -->
+    <footer class="footer">
+      <div class="footer__corner">c.2026</div>
+      <div class="footer__body">
+        <p>(415)316-8530</p>
+        <p><a href="mailto:lee.allison@northeastern.edu">lee.allison@northeastern.edu</a></p>
+      </div>
+    </footer>
+
+  </div>
+<script src="carousel.js"></script>
+</body>
+</html>

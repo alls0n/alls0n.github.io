@@ -1,0 +1,151 @@
+/* --------------------------------------------------------------------------
+   Shell: sidebar (left, full height) + footer (full width, crosses sidebar)
+   -------------------------------------------------------------------------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) var(--footer-h);
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: var(--line);
+  overflow-y: auto;
+}
+
+.sidebar__icon {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-bottom: var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sidebar__icon img {
+  width: 40%;
+  height: 40%;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__nav a {
+  padding: 1rem 0.5rem;
+  border-bottom: var(--line);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sidebar__nav a:hover,
+.sidebar__nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* Footer: spans the full width, its left cell lines up with the sidebar */
+
+.footer {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  border-top: var(--line);
+  font-size: 1rem;
+}
+
+.footer__corner {
+  display: grid;
+  place-items: center;
+  border-right: var(--line);
+}
+
+.footer__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.footer__body p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Main area: this is the part you replace on other pages
+   -------------------------------------------------------------------------- */
+
+.main {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: auto;
+}
+
+
+/* Generic page wrapper for interior pages (About, Projects, Contact...) */
+.page {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 46rem;
+  /*padding: clamp(1.5rem, 4vw, 4rem);*/
+  padding: var(--gutter);
+}
+
+/* Heading strip: shared by interior pages (.page-header) and the home page (.split__header) */
+.page-header,
+.split__header {
+  display: flex;
+  align-items: center;
+  flex: none;
+  min-height: var(--sidebar-w);   /* ties the line to the icon's bottom edge */
+  padding: clamp(0.75rem, 2vw, 1.25rem) var(--gutter);
+  /*padding: clamp(1rem, 3vw, 2rem) var(--gutter);*/
+  border-bottom: var(--line);
+}
+
+.page-header h1,
+.split__header h1 {
+  margin: 0;
+  /*font-size: clamp(1.25rem, 3.5vw, 2.75rem);*/
+  /*font-size: clamp(1.25rem, 2vw, 1.75rem);   /* smaller than the hero h1, so it never outgrows the icon */
+}
+
+/* Heading strip for interior pages */
+/*.page-header {
+  flex: none;                 /* no growing, so it stops stealing space */
+  /*padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1.5rem, 4vw, 4rem); /*1rem, 3vw, 2rem*/
+ /* padding: clamp(0.75rem, 2vw, 1.25rem) var(--gutter);
+  border-bottom: var(--line);
+}
+/*
+.page-header h1 {
+  margin: 0;
+}*/
+
+/** Small screens: narrower rails, text stacks above the carousel */
+@media (max-width: 800px) {
+  .sidebar__nav a {
+      font-size: 0.875rem;
+      padding: 0.875rem 0.25rem;
+  }
+
+  .footer {
+    font-size: 0.875rem;
+  }
+}

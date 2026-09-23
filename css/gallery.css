@@ -1,0 +1,5 @@
+/*
+GRID VIEW GALLERY
+*/
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.gallery figure { margin: 0; border: var(--line); }

@@ -1,0 +1,57 @@
+/* Projects carousel: each slide is a whole project card */
+.carousel--projects { min-height: 480px; }
+
+.carousel--projects .carousel__slide {
+  flex: 0 0 clamp(300px, 62%, 760px);  /* wide enough to read, next project peeks in */
+  background: var(--paper);            /* hides the placeholder X behind the text */
+}
+
+/*
+.project-card__head {
+  padding: clamp(0.5rem, .75vw, 1rem) var(--gutter);
+  border-top: var(--line);
+}*/
+
+.project-card__head {
+  display: flex;
+  align-items: center;         /* text stays vertically centered in the row */
+  border-top: var(--line);
+  /* no padding here any more */
+}
+
+.project-card__head p {
+  flex: 1;                     /* takes the free space, pushing the button right */
+  min-width: 0;                /* lets long titles wrap instead of shoving the button out */
+  margin: 0;
+  padding: clamp(0.5rem, .75vw, 1rem) var(--gutter);
+}
+
+.project-card__head h2 { margin: 0; }
+/*.project-card__head p  { margin: 0; }*/
+
+/* Figures sit side by side and share the card's remaining height */
+.project-card__figures {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.project-card__figures figure {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+}
+/*.project-card__figures figure + figure { border-left: var(--line); }*/
+.project-card__figures figcaption { font-size: 0.875rem; }
+
+/* Link wrapper keeps the image shrinking to fit */
+.project-card__figures figure > a {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.project-card__figures a:hover img { opacity: 0.8; }
+.project-card__figures a:focus-visible { outline-offset: -3px; }
